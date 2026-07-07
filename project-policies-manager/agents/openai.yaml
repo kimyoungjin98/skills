@@ -1,0 +1,4 @@
+interface:
+  display_name: "Project Policies Manager"
+  short_description: "Maintain project policies in docs"
+  default_prompt: "Use $project-policies-manager to organize project policies into docs."

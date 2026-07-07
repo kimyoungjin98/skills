@@ -1,0 +1,4 @@
+interface:
+  display_name: "Project Planning Manager"
+  short_description: "Organize product planning docs"
+  default_prompt: "Use $project-planning-manager to organize planning notes into docs."
