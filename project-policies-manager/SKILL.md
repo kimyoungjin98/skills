@@ -15,6 +15,7 @@ description: Maintain this repository's project policies in docs. Use when the u
 
 2. Separate policy from implementation detail:
    - Capture durable rules, precedence, naming conventions, ownership boundaries, workflow expectations, validation requirements, and architectural decisions.
+   - For this repository, organize durable rules against the "Repository Policy Coverage" section before writing docs.
    - Exclude transient task notes, one-off bug context, command output, Codex log chatter, backlog items, and low-level implementation explanations unless they define a repeatable rule.
    - Do not invent policies. If a policy is an inference from config or code, mark it as an inference or ask before making it normative.
    - Exception: when the repository has no markdown policy docs comparable to `docs/project-rule.md`, `docs/client-rule.md`, or `docs/server-rule.md`, create a minimal default policy seed from the "Default Policy Seed" section below. Treat it as a starting policy, not as an inferred project convention.
@@ -33,6 +34,7 @@ description: Maintain this repository's project policies in docs. Use when the u
 5. Write policy docs for agents and maintainers:
    - Use concise imperative rules.
    - Keep headings domain-oriented: `Common`, `Client`, `Server`, `DTO`, `Testing`, `Deployment`, `Architecture`, `Docs`, or similar.
+   - In this repository, prefer Korean headings and Korean imperative bullets because the authoritative policy docs are Korean.
    - Preserve the repository's primary language and terminology. If existing policy docs are Korean, continue in Korean.
    - Include concrete file paths, package names, command names, and allowed method names when they are part of the rule.
    - Avoid generic best practices that are not specific to the project.
@@ -57,6 +59,35 @@ For each policy doc, prefer this shape:
 ```
 
 Add a short precedence section only when multiple sources define ordering. Add source notes only when they prevent ambiguity; avoid turning policy docs into audit logs.
+
+## Repository Policy Coverage
+
+When updating this repository's policy docs, classify the rules into the smallest useful set of these buckets. Do not force every bucket into a separate file; use `docs/project-rule.md`, `docs/client-rule.md`, and `docs/server-rule.md` unless a stronger convention already exists.
+
+Required buckets requested for this repository:
+
+- `폴더 구조`: module, route-local, package, and shared folder ownership; allowed depth; when a folder is justified.
+- `DTO, 타입 정책`: shared contracts, server DTOs, client-only view models, generated types, and naming rules.
+- `Client: Form 정책`: form state library, validation location, field component structure, submit/reset/error/loading behavior.
+- `Server: 모듈 분리 정책`: NestJS module ownership, provider/controller/service boundaries, when to create submodules.
+- `Client: Dialog 정책`: dialog ownership, root/content split rules, confirmation dialogs, state and submit flow placement.
+- `Client: 컴포넌트 정책`: page-local vs shared components, single-use components, UI primitive reuse, naming and import policy.
+- `Client: API 호출 정책`: generated client usage, react-query ownership, API fetch wrapper, request/response type source of truth.
+- `Server: CRUD 파일 이름 / 순서 정책`: CRUD method names, file names, controller route order, service/repository operation order.
+- `Server: Service 분리 정책`: service responsibility, utility extraction limits, transaction boundaries, repository/prisma access placement.
+- `Client: 디자인 시스템 정책`: `DESIGN.md`, `packages/ui`, tokens, allowed variants, color/style limits, responsive and accessibility expectations.
+
+Recommended additional buckets to consider when the sources support them:
+
+- `검증/테스트 정책`: required lint, typecheck, build, unit/e2e, generated-client validation commands, and when each command is mandatory.
+- `상태 관리 정책`: local state vs Zustand/global state, reset/lifetime ownership, query cache vs client store boundaries.
+- `에러/로딩/빈 상태 정책`: client-visible error handling, disabled/loading states, empty states, toast/alert usage, retry expectations.
+- `보안/환경 정책`: environment variables, secrets, CORS, auth/session handling, rate limits, and deployment assumptions.
+- `생성물 정책`: files that must not be hand-edited, generation commands, and follow-up docs/OpenAPI/client generation steps.
+- `네이밍/Import 정책`: file naming, barrel files, path aliases, domain prefixes, public import boundaries, and index export rules.
+- `문서/기획 분리 정책`: implementation rules stay in policy docs; product requirements stay under `docs/plan/**`.
+
+Use these buckets as a coverage checklist, not as generic advice. If a requested bucket is not yet defined by the user or by authoritative sources, document it as `정의 필요` only when the user asked for a gap list; otherwise ask before making it normative.
 
 ## Default Policy Seed
 
