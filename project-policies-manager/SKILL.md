@@ -45,6 +45,15 @@ description: Maintain this repository's project policies in docs. Use when the u
    - Run formatting or docs checks when the repository provides them.
    - Report the files changed, the source policy inputs used, and any unresolved ambiguity.
 
+## 작업 원칙
+
+- 기본적으로 메인 에이전트가 혼자 끝까지 작업한다.
+- 하위 에이전트는 작업이 명확히 분리되고 실제로 시간이나 정확도에 큰 도움이 될 때만 사용한다.
+- 같은 코드 검토나 테스트를 여러 에이전트에게 중복시키지 않는다.
+- 요청한 문제만 최소한으로 수정하고 관련 테스트를 실행한다.
+- 큰 변경일 때만 마지막에 전체 테스트를 한 번 실행한다.
+- 완료 후 필요한 문서 갱신과 커밋까지 처리한다.
+
 ## Output Shape
 
 For each policy doc, prefer this shape:
