@@ -29,7 +29,15 @@ description: Maintain this repository's domain-centered planning and product doc
    - Exclude low-level code explanations, transient debug notes, command output, Codex log chatter, and implementation details that do not affect product behavior.
    - Do not invent requirements. If a requirement is inferred from code, screenshots, or behavior, label it as an inference or ask before treating it as decided.
 
-4. Choose the document shape:
+4. Audit and prune unused product policies:
+   - Before retaining or adding a product policy, identify its supporting requirement, goal, feature, actor, state, permission, or explicit user/source decision and its affected domain.
+   - Treat a policy as unused when no current planning content or authoritative planning source supports it, it has no identifiable affected product behavior, and it is not an explicit cross-domain product constraint.
+   - Remove unused policies while reorganizing or updating planning docs; do not preserve them merely because they already exist in a `정책` section.
+   - Keep a policy when it defines a durable boundary, permission, state transition, data-retention rule, or cross-domain product constraint even if it is not repeated by a single feature.
+   - Do not remove an unresolved or inferred policy silently: retain it only when its source and scope are clear; otherwise ask the user before treating it as a decision.
+   - Never use this audit to remove implementation policies from policy documents such as `docs/client-rule.md` or `docs/server-rule.md`; those are outside product-planning cleanup.
+
+5. Choose the document shape:
    - Update an existing planning doc before creating a new one.
    - Use `docs/plan/` as the default location for planning docs when no stronger repository convention exists.
    - Prefer one markdown file per product domain, named `docs/plan/<domain>.md`.
@@ -43,25 +51,26 @@ description: Maintain this repository's domain-centered planning and product doc
    - Each split domain document must still use the same domain-centered shape: domain first, then `요구사항`, `목표`, `기능`, `정책`.
    - Keep only cross-domain policies in the parent document; domain-specific requirements, goals, features, and policies belong in the domain document.
 
-5. Normalize ambiguous notes:
+6. Normalize ambiguous notes:
    - Convert rough ideas into explicit domain requirements, domain goals, domain features, and domain policies.
    - Preserve unresolved ambiguity only when the user asks for questions to be tracked.
    - Express prohibitions and scope boundaries as domain policies instead of separate `Out of Scope` sections unless requested.
 
-6. Write concise docs for future implementation:
+7. Write concise docs for future implementation:
    - Preserve the repository's primary language and terminology. If nearby planning docs are Korean, continue in Korean.
    - Prefer product-facing language over technical jargon.
    - Include concrete actors, workflows, states, permissions, data concepts, and expected outcomes inside the relevant domain.
    - Avoid file paths and code snippets unless the planning decision is explicitly about a technical boundary.
    - Use a domain-centered default shape: each domain file contains `요구사항`, `목표`, `기능`, and `정책`.
 
-7. Validate the result:
+8. Validate the result:
    - Re-read the edited docs against the gathered planning sources.
    - Verify that the planning docs are organized around the extracted core domains.
    - Check that each domain contains only requirements, goals, features, and policies, not notes, MVP plans, or implementation status.
+   - For every retained product policy, verify a supporting planning source and affected domain or product behavior; remove policies that fail the unused-policy audit.
    - If a planning doc crosses the length review trigger, check whether domain splitting would improve scanability without duplicating requirements.
    - Verify that implementation policies remain in policy docs, while planning requirements remain in planning docs.
-   - Report changed files and source inputs used.
+   - Report changed files, source inputs used, and policies removed by the audit (or state that none were removed).
 
 ## Document Templates
 
