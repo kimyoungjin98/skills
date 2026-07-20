@@ -1,6 +1,6 @@
 ---
 name: project-policies-manager
-description: Maintain this repository's project policies in docs. Use when the user asks to collect, organize, formalize, update, clarify, or reconcile project rules, coding conventions, team policies, architecture decisions, operational rules, AGENTS.md instructions, or scattered repository guidance into docs for this project.
+description: Maintain this repository's project policies and AGENTS.md instructions. Use when the user asks to collect, organize, formalize, update, clarify, or reconcile project rules, coding conventions, team policies, architecture decisions, operational rules, AGENTS.md instructions, or scattered repository guidance for this project.
 ---
 
 # Project Policies Manager
@@ -26,12 +26,19 @@ description: Maintain this repository's project policies in docs. Use when the u
    - Prefer a small set of clear files such as `docs/client-rule.md`, `docs/server-rule.md`, `docs/project-rule.md`, `docs/architecture-rule.md`, or `docs/workflow-rule.md`.
    - Do not create README-style companion docs, quick references, or changelogs for policy output unless the repository already uses them for policies.
 
-4. Resolve conflicts explicitly:
+4. Synchronize policy docs and `AGENTS.md` in both directions:
+   - Treat `docs/*-rule.md` as the detailed policy source and `AGENTS.md` as the concise, immediately actionable rule set for agents.
+   - When a durable rule is added or changed in either location, reflect it in the other location at the appropriate level of detail during the same change.
+   - Keep implementation detail, rationale, examples, and domain-specific exceptions in `docs/`; keep `AGENTS.md` to cross-cutting instructions, mandatory constraints, validation commands, and links to the detailed policy docs.
+   - Do not copy every rule verbatim into `AGENTS.md`; add a concise directive or a stable link when the detailed rule is already covered in `docs/`.
+
+5. Resolve conflicts explicitly:
    - Preserve declared precedence from files such as `AGENTS.md`.
+   - Prefer explicit team decisions and enforced repository configuration over prose. For a conflict between detailed policy docs and `AGENTS.md`, update the latter to match the former unless an explicit precedence rule says otherwise.
    - When two policies conflict, document the higher-priority rule and mention the superseded source only if it helps future maintainers.
    - Ask the user when precedence cannot be discovered and the conflict changes behavior.
 
-5. Write policy docs for agents and maintainers:
+6. Write policy docs for agents and maintainers:
    - Use concise imperative rules.
    - Keep headings domain-oriented: `Common`, `Client`, `Server`, `DTO`, `Testing`, `Deployment`, `Architecture`, `Docs`, or similar.
    - In this repository, prefer Korean headings and Korean imperative bullets because the authoritative policy docs are Korean.
@@ -39,11 +46,12 @@ description: Maintain this repository's project policies in docs. Use when the u
    - Include concrete file paths, package names, command names, and allowed method names when they are part of the rule.
    - Avoid generic best practices that are not specific to the project.
 
-6. Validate the result:
-   - Re-read the edited docs against the discovered sources.
-   - Check that new rules are not duplicated across files unless precedence requires it.
+7. Validate the result:
+   - Re-read the edited policy docs and `AGENTS.md` against the discovered sources.
+   - Check that every changed durable policy is represented in both locations at the appropriate detail level, with no contradiction.
+   - Check that new rules are not duplicated across policy docs or copied verbatim into `AGENTS.md` unless precedence requires it.
    - Run formatting or docs checks when the repository provides them.
-   - Report the files changed, the source policy inputs used, and any unresolved ambiguity.
+   - Report the files changed, the source policy inputs used, the `AGENTS.md` synchronization result, and any unresolved ambiguity.
 
 ## 작업 원칙
 
