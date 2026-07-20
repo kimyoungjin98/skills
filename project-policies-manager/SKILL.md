@@ -184,6 +184,8 @@ Baseline client rules:
 - Do not hand-edit generated API clients or generated type files.
 - Prefer the repository's design system, shared UI package, tokens, and existing component patterns before adding new UI primitives.
 - Keep visual variants small and consistent. Avoid adding many semantic color or style variants unless the design system already defines them.
+- Use semantic design tokens and the Tailwind default scale. Do not use arbitrary-value utilities for color, spacing, or radius such as `bg-[#ffff]`, `text-[#...]`, `border-[#...]`, or `p-[12px]`.
+- Create spacing between sections, cards, and repeated items with the parent `flex` or `grid` `gap`; reserve margin for layout outer space and padding for component inner space.
 - Put modal, dialog, drawer, or overlay ownership in a dedicated component when it has its own state, validation, or submit flow.
 - Keep client validation close to the form or boundary where user input enters the system.
 - Keep accessibility-relevant labels, focus behavior, disabled states, loading states, and error states explicit in interactive UI.
