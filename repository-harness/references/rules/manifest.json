@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "source": "docs/",
+  "files": {
+    "main.md": {
+      "source_sha256": "b2fbb531c07bd9c09a5ba0f6a3902136f4ac6d3226abdfce01f9ed58f1f0e822",
+      "bundled_sha256": "fdf4ceaa50f49a8141918832c5437c9138544517440d71adfc0222aa0ce9dc6e"
+    },
+    "code-base.md": {
+      "source_sha256": "7fca3ff0627f2f698f4e2f84999ea47ace79111ae5ccd0447565cbda09eadfc9",
+      "bundled_sha256": "471bf02656b0ebb5cbd657e74f493f5bc82075db35d35ff5b2ceb5b2163a97cf"
+    },
+    "code-base/front-end.md": {
+      "source_sha256": "6c5eb59631697f9208dd3de8a39dc181d6ff9c74f336add3977d626172ab9fcf",
+      "bundled_sha256": "48fb0aff07ade9111bd9b8d6e6f2ebae191f0fa1d962f63ace68de3564c6d172"
+    },
+    "code-base/back-end.md": {
+      "source_sha256": "1f4913ebe9c66bde0d81e5adedc64a9875a6d6fb6d2276aba986b9d8a4c6b95e",
+      "bundled_sha256": "70efa8f47889626cf057b8915db1239eed493b79f8adbdb502ed9f606ac4c258"
+    },
+    "code-base/design-system.md": {
+      "source_sha256": "e8b13f26bddac99336327e1126be4041d0a03c3afe6d76745f4db97982139b7d",
+      "bundled_sha256": "d3ebaf675bc1ad0f8b9c70847a93cee90f2228c187be7003b56ce2db2bdb49f1"
+    },
+    "test.md": {
+      "source_sha256": "db58a8d71fd707755d1be04b87c7a8b279d41b289069e5b9f4c6837b5f458731",
+      "bundled_sha256": "e7f4dfadeb664fce961bd98ee8d25d2356e78a283c14d46e3ddc50f8651a0866"
+    },
+    "git-branch.md": {
+      "source_sha256": "2650cd611f76e24be9ea6962dbd96d995805554c56fc6973fcb50e0acfd00ac2",
+      "bundled_sha256": "3df10c1c20a30591dec6eeeb1ac524a1d131be204f775893880b74024fdceef9"
+    },
+    "document-write.md": {
+      "source_sha256": "32e7af04f9ce06959a5f81302d29a88e04696274acdd3d18211152c28fc7f34f",
+      "bundled_sha256": "bb1b92085f35a53a255fea003afa405c72a713e28dd0f0e06dec23d2e1cfa941"
+    },
+    "notifications.md": {
+      "source_sha256": "c8f1538d58352175c4b23ce5b353695ae5fa881e9c97f95e636dda4a204e179c",
+      "bundled_sha256": "3849e26f2daf32f67c739ba00bcd1cf9da4832c070be75ba7f62c566d0e5424e"
+    },
+    "codex-subscription.md": {
+      "source_sha256": "78863fab48ea0a98281190f28294c524239ed4051e0227f1cbd2ee4a01fc5e1c",
+      "bundled_sha256": "9b72fe6ba4f3a6790a55dc3054e14e65c01d71be3def888b17868fb105c639d0"
+    },
+    "evaluation.md": {
+      "source_sha256": "04a4579c578e96e4a693e3f3a3de1a200c5a02d5ddfe3118309a795175536438",
+      "bundled_sha256": "3a25d5dd6041de594f18e045a1ccff80ea95cc39b7180cb8c9f6cb23d8475bfd"
+    }
+  }
+}

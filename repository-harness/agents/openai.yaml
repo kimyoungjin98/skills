@@ -1,0 +1,4 @@
+interface:
+  display_name: "레포지토리 하네스 구성"
+  short_description: "기존 프로젝트를 분석해 마크다운 규칙과 AGENTS.md로 하네스 구성"
+  default_prompt: "$repository-harness 이 프로젝트에 기존 기술과 규칙을 유지하면서 레포지토리 하네스를 구성해줘."

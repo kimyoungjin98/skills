@@ -1,0 +1,62 @@
+name: Codex subscription tasks
+
+on:
+  issues:
+    types: [opened, labeled]
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: read
+
+jobs:
+  authorize:
+    if: github.event.repository.private == true && github.event.sender.type == 'User'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: read
+      pull-requests: read
+    outputs:
+      allowed: ${{ steps.request.outputs.allowed }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          persist-credentials: false
+      - id: request
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { authorize } = await import(`${process.env.GITHUB_WORKSPACE}/.github/codex/automation.mjs`);
+            core.setOutput('allowed', await authorize(github, context));
+
+  work:
+    needs: authorize
+    if: needs.authorize.outputs.allowed == 'true'
+    # Register exactly one dedicated runner with this label and its own login.
+    # Its job queue serializes access to the persistent subscription credentials.
+    runs-on: [self-hosted, linux, codex-subscription]
+    timeout-minutes: 60
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Implement and publish
+        uses: actions/github-script@v7
+        env:
+          CODEX_BASE_BRANCH: ${{ vars.CODEX_BASE_BRANCH }}
+          CODEX_VERIFY_COMMAND: ${{ vars.CODEX_VERIFY_COMMAND }}
+          CODEX_NOTIFY_PROVIDER: ${{ vars.CODEX_NOTIFY_PROVIDER }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        with:
+          script: |
+            const { run } = await import(`${process.env.GITHUB_WORKSPACE}/.github/codex/automation.mjs`);
+            await run(github, context, core);
