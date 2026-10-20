@@ -1,0 +1,4 @@
+interface:
+  display_name: "Rank Tracker"
+  short_description: "Rank Tracker development guidance"
+  default_prompt: "Use $rank-tracker to work on this repository."
