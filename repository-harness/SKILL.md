@@ -134,7 +134,10 @@ description: 기존 마크다운 규칙을 참조하여 대상 프로젝트의 �
 - 갱신 시 기존 자동화와 기록된 선택을 유지. 선택 기록이 없으면 사용 여부를 질문하고, 명시적으로 구성하지 않기로 한 프로젝트에는 반복 질문하지 않음. 사용자가 선택을 바꾸면 해당 요청 적용
 - 답변 전에는 미확정으로 기록하고 자동화 적용을 보류. 답변을 기다리는 동안 독립적인 조사·검증은 진행 가능. 미응답을 구성하지 않음으로 처리하지 않음
 - [구독 자동화](./references/rules/codex-subscription.md)를 읽고 비공개 GitHub 저장소, 전용 Linux self-hosted runner와 구독 로그인 유지, Git·PR·Webhook 및 검증 명령을 확인. 미준비 항목은 모아서 안내하고 실제 적용 완료로 보고하지 않음
-- [Actions flow 필수 준비](./references/rules/codex-subscription.md#actions-flow-필수-준비)에 따라 자동화 전용 `auth.json`, 인증 Secret 갱신 방식의 GitHub 갱신용 토큰, 조직·저장소의 Actions PR 생성 허용, `main` 등 실제 기본 브랜치 반영을 각각 확인. 현재 템플릿의 영구 파일 유지와 별도 Secret 복원·갱신 구현 필요를 구분하고 파일 복사·Secret 등록만으로 실행 완료 처리하지 않음
+- [Actions flow 필수 준비](./references/rules/codex-subscription.md#actions-flow-필수-준비)에 따라 자동화 전용 `auth.json`, 인증 Secret 갱신 방식의 GitHub 갱신용 토큰, 조직·저장소의 Actions PR 생성 허용, 실제 기본 브랜치 반영을 각각 확인. 현재 템플릿의 영구 파일 유지와 별도 Secret 복원·갱신 구현 필요를 구분하고 파일 복사·Secret 등록만으로 실행 완료 처리하지 않음
+- 발행 정책·전달 상태와 복구는 [워크플로우](./references/rules/main.md#작업검증전달-상태)와 구독 자동화 기준을 적용. 최초 발행 정책만 확정하고 기존 정책·승인·선택·설정·override를 보존. 필수 검증 실패를 Draft 전달 성공으로 숨기지 않음
+- 실제 서비스 계정의 도구·CLI·인증·샌드박스 사전 점검, GitHub 권한별 준비, 기존 러너 재사용·조직 재등록, 기본 브랜치 활성화·배포 영향을 확인. 준비 실패 시 모델 미호출과 가능한 실패 보고 경로 확인
+- [프로젝트 자동화 설정 양식](./assets/codex-subscription/project.example.json)을 실제 프로젝트 근거로 채워 배치하고 기존 설정은 보존. 영구 복구 기록과 테스트 전용 환경·쓰기 경로·서브모듈 처리도 연결. 공통 템플릿에 프로젝트 고유 값을 하드코딩하지 않음
 - [workflow 템플릿](./assets/codex-subscription/workflow.yml)을 `.github/workflows/codex-subscription.yml`, [제어 스크립트](./assets/codex-subscription/automation.mjs)를 `.github/codex/automation.mjs`로 배치. 알림 도구는 기존 경로를 우선하고 없으면 기본 스크립트를 함께 복사
 - 사용자 요청이 템플릿 제공만인 경우 준비 조건과 설정 양식을 제공하고 실제 러너·로그인·원격 설정은 완료로 처리하지 않음. 공개 저장소에는 이 인증 방식의 실행 워크플로우를 설치하지 않음
 - 기존 파일은 보존. 기존 기준 브랜치·검증 명령·알림 경로에 맞게 조정하고, CI가 Worktree 준비와 커밋·PR을 처리하는 작업 권한은 프로젝트 override로 기록
@@ -169,6 +172,8 @@ description: 기존 마크다운 규칙을 참조하여 대상 프로젝트의 �
 ```
 
 ## 검증과 완료
+
+- 자동화 변경은 [실행과 복구 평가](./references/rules/evaluation.md#자동화-실행과-복구-평가)를 확인. [테스트](./references/rules/test.md)에 따라 요청한 작업과 기대 동작에서 시나리오를 도출하고 관련 테스트 코드를 작성·수정·실행. 기존 검사·생성 검증도 실행하며 정적·실제 실행·수동 복구 판정과 미실행을 구분
 
 - Codex 최초 구성과 선택 기록 없는 갱신은 실행 승인 방식과 필요한 범위의 명시적 답변을 확인했는지 검사. 미응답이면 선택 대기이며 하네스 구성·갱신 완료로 처리하지 않음. 설정 변경은 파일 반영과 실제 적용 확인을 구분
 - 공통 규칙이 한 벌만 존재하고 `.harness-state/`에 `state.json` 외의 본문 사본이 생성되지 않았는지 확인. 구형 설치 전환 시 남은 파일이 있으면 사유를 보고

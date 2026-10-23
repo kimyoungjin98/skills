@@ -1,0 +1,18 @@
+{
+  "publicationPolicy": "draft-on-incomplete",
+  "baseBranch": "",
+  "branchPrefix": "",
+  "codexExecutable": "",
+  "authHome": "",
+  "stateRoot": "",
+  "workRoot": "",
+  "toolChecks": [],
+  "sandboxProbe": ["sandbox", "linux", "--config", "sandbox_mode=\"workspace-write\"", "--", "true"],
+  "prepareCommand": "",
+  "verifyCommand": "",
+  "testEnvironment": {},
+  "protectedPaths": [],
+  "notifyScript": "",
+  "notifyProvider": "",
+  "webhookEnv": ""
+}
