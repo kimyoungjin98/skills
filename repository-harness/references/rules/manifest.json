@@ -3,8 +3,8 @@
   "source": "docs/",
   "files": {
     "main.md": {
-      "source_sha256": "94dea502af1242162b5fd561494e29adf9a939bf87b7a6145d46b5f3ab7bba6b",
-      "bundled_sha256": "bb22a0869ef5df342e860bd5a0de8257e542497675a9cf2777f47a6108d8fc04"
+      "source_sha256": "8049b697a7c1ce5d55554f79b6628edae24e5d590127d146d1a0c4ad712fc11e",
+      "bundled_sha256": "9cc6a15618d4e1c709f5e3b7cb370ec4297f846e4a3a492d0954f4f3e2be26c7"
     },
     "code-base.md": {
       "source_sha256": "7fca3ff0627f2f698f4e2f84999ea47ace79111ae5ccd0447565cbda09eadfc9",
@@ -23,16 +23,16 @@
       "bundled_sha256": "d3ebaf675bc1ad0f8b9c70847a93cee90f2228c187be7003b56ce2db2bdb49f1"
     },
     "test.md": {
-      "source_sha256": "9661ebd483e39225b8a010907eca531667aa6733b7b28ae2890195146021a677",
-      "bundled_sha256": "4cf4ce2773ba4bc4149fc0420544194de71fdddbfdcab51777127139ebf71e3c"
+      "source_sha256": "fac8ddebcae185dfdacc92a5fd9747de0c6348a100719ab200f8a9e458e275fd",
+      "bundled_sha256": "e7bfdba5f51c62764d508e369afd81de9fabb9b392052b52a9fc8b265e7413f4"
     },
     "git-branch.md": {
-      "source_sha256": "14529c5155b3f0b6b1227bb90af20b12eaf2a8343b56c29228bce3e2b451cc19",
-      "bundled_sha256": "8db5b09aed37ae823740c69c1de1b75507c48509ec98fe454fec3fcd3319e129"
+      "source_sha256": "74d06cbab84aea8a9ab5996edc12b7998893705254408e7b765af037033bb547",
+      "bundled_sha256": "a2fbbf47620cb284e9be1856ab79723a85ed0b49e8233b41ede9e284f07275c9"
     },
     "document-write.md": {
-      "source_sha256": "32e7af04f9ce06959a5f81302d29a88e04696274acdd3d18211152c28fc7f34f",
-      "bundled_sha256": "bb1b92085f35a53a255fea003afa405c72a713e28dd0f0e06dec23d2e1cfa941"
+      "source_sha256": "ebc196a4670938c9fa45ec511921812c3f5f4eb5339b1af56f5f3513b02cd2e2",
+      "bundled_sha256": "26da917f1831f915dcf0bc012d82f4bce348cf4d910b876219a0655c8612ee55"
     },
     "notifications.md": {
       "source_sha256": "5cd0ffe888aac821cad6f5990e69b657432811fc13136bbe4f603b4f94fb304b",
@@ -43,8 +43,8 @@
       "bundled_sha256": "534e4e14f73b645b581c0cd634b652e75ad9a07fe02085a559f3b31152ccb16f"
     },
     "evaluation.md": {
-      "source_sha256": "a9d023b36a70b73b4c7019506f0e2e19a84dd15b5c4381848126943952dcd93e",
-      "bundled_sha256": "f49d8d8eee14423e6f857eec03a80e1c5bb40f88e9d12dc27c0fff0152713731"
+      "source_sha256": "3812eae5f457634dc0c8cf1f3ef3658985b08e1a4f1975268820da94d475e665",
+      "bundled_sha256": "f38a5dbb8f32e034d548d2482ec4eae62afe3ce2d6a04b299a6e49e4685c19cf"
     }
   }
 }
